@@ -40,7 +40,7 @@
             <a class="nav-link" href="contact.html">Contact Us</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="accountCreation.php">Create an Account<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="accountCreation.html">Create an Account<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="search.php">Search</a>
