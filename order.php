@@ -5,14 +5,29 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="This page is for ordering decks">
+  <meta name="author" content="Joon Lee">
 
   <title>MTG Renter</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+  <script type = "text/javascript">
+     <!--
+      function checkDeck(){
+	  var choice = document.getElementById("deck").selectedIndex;
+	  if (choice == 0){
+	     alert("You must choose a deck");
+	     return false;
+	  }
+	  else{
+	     return true;
+	  }
+      }
+     //-->
+     </script>
+  
 </head>
 
 <body>
@@ -54,47 +69,51 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">MTG Renter is a renting service for competitive Magic: The Gathering Decks</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.3.1</li>
-          <li>jQuery 3.4.1</li>
-        </ul>
+        <h1 class="mt-5">Order Decks</h1>
       </div>
     </div>
   </div>
-  
-  <form action = "orderConf.php" method = "post">
-    <table>
-       <tr>
-        <td>
-		 <select name = "decks">
-			<option>Eldrazi Tron</option>
-			<option>Amulet Titan</option>
-			<option>Burn</option>
-			<option>Jund</option>
-			</select>
-		</td>
-       </tr>
-       <tr>
-         <td><strong>Username:</strong></td>
-         <td> <input type = "text"  name = "username" size = "20" /></td>
-       </tr>
-       <tr>
-         <td><strong>Password:</strong></td>
-         <td> <input type = "text"  name = "password" size = "20" /></td>
-	</tr>
-    </table>
-    <p />
-  
-  <?php
-	//Connect to MySQL
-	$db = mysqli_connect("csdb", "jlee7", "7zfkbev5", "fal19_cis442_1");
-	
-    //Hardcoded Query
-	$query = "SELECT 
-  ?>
-  
+	<form onsubmit = "return checkDeck()" action = "orderConf.php" method = "POST">
+		<p />
+		<table>
+			<tr>
+			  <td><strong>Username:</strong></td>
+			  <td><input type = "text" id = "username" name = "username" size = "20" /></td>
+			  <td>&emsp;&emsp;&emsp;</td>
+			  <td rowspan = "2">
+			    <select id = "deck" name = "deck">
+			      <option>Choose a deck</option>
+			      <option>Eldrazi Tron</option>
+			      <option>Amulet Titan</option>
+			      <option>Burn</option>
+			      <option>Jund</option>
+			  </select>
+			  </td>
+			</tr>
+			<tr>
+			  <td><strong>Password:</strong></td>
+			  <td><input type = "password" id = "password" name = "password" size = "20" /></td>
+			</tr>
+		</table>
+		<br /><br /><br />
+		<table>
+			<tr>
+			  <td><strong>PayPal Email:</strong></td>
+			  <td><input type = "text" id = "ppEmail" name = "ppEmail" size = "20" /></td>
+			</tr>
+			<tr>
+			  <td><strong>PayPal Password:</strong></td>
+			  <td><input type = "text" id = "ppPass" name = "ppPass" size = "20" /></td>
+			</tr>
+		</table>
+
+		<br /><br /><br />
+
+		<input type = "submit" id = "submit" value = "Place Order" />
+    		<input type = "reset" value = "Reset" />
+
+		<p />
+	</form>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
