@@ -63,6 +63,38 @@
       </div>
     </div>
   </div>
+  
+  <form action = "orderConf.php" method = "post">
+    <table>
+       <tr>
+        <td>
+		 <select name = "decks">
+			<option>Eldrazi Tron</option>
+			<option>Amulet Titan</option>
+			<option>Burn</option>
+			<option>Jund</option>
+			</select>
+		</td>
+       </tr>
+       <tr>
+         <td><strong>Username:</strong></td>
+         <td> <input type = "text"  name = "username" size = "20" /></td>
+       </tr>
+       <tr>
+         <td><strong>Password:</strong></td>
+         <td> <input type = "text"  name = "password" size = "20" /></td>
+	</tr>
+    </table>
+    <p />
+  
+  <?php
+	//Connect to MySQL
+	$db = mysqli_connect("csdb", "jlee7", "7zfkbev5", "fal19_cis442_1");
+	
+    //Hardcoded Query
+	$query = "SELECT 
+  ?>
+  
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
