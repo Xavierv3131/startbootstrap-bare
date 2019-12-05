@@ -12,6 +12,76 @@
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  <script type = "text/javascript">
+function handler1() {
+var teststring;
+var firstnametest = 0;
+var lastnametest = 0;
+var emailtest = 0;
+var phonetest = 0;
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+var email = document.getElementById("email").value;
+var address = document.getElementById("address").value;
+var notmissing = 0;
+
+//http://www.itss.brockport.edu/~ichar2/cis442/project/accountcreation.html?firsname=&lastname=&address=&tele1=&tele2=&tele3=&email=&user=&password=
+
+
+
+
+
+teststring = document.getElementById("firstname").value;
+
+if (teststring.search(/^[A-Z][a-z]+$/) == 0){
+firstnametest = 1; 
+}
+else {
+firstnametest = 0; 
+}
+
+
+teststring = document.getElementById("lastname").value;
+if (teststring.search(/^[A-Z][a-z]+$/) == 0){
+lastnametest = 1; 
+}
+
+
+
+teststring = document.getElementById("phone1").value;
+if (teststring.search(/^\d{3}$/) == 0) {
+
+teststring = document.getElementById("phone2").value;
+if (teststring.search(/^\d{3}$/) == 0) {
+
+teststring = document.getElementById("phone3").value;
+if (teststring.search(/^\d{4}$/) == 0) {
+phonetest = 1;
+}
+
+}
+
+}
+
+
+if (username != "" && password != "" && email != "" && address != ""){ 
+notmissing = 1;
+
+}
+
+if (phonetest == 1 && lastnametest == 1 && firstnametest == 1 && notmissing == 1){ 
+
+return true;
+
+}else{
+return false;
+
+}
+}
+</script>
+
+
 
 </head>
 
@@ -54,12 +124,35 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">MTG Renter is a renting service for competitive Magic: The Gathering Decks</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.3.1</li>
-          <li>jQuery 3.4.1</li>
-        </ul>
+        <h1 class="mt-5">Account Creation Form</h1>
+       <form onsubmit = "return handler1();" action = "accountCreationConf.php" method = "post">
+        <h3> Name: </h3>
+        First Name: <input  type = "text "id= "firstname" name = "firstname" size = "15" maxlength = "40" />
+        Last Name: <input  type = "text "id= "lastname" name = "lastname" size = "15" maxlength = "40" />
+
+        <h3> Address:</h3>
+        <input type = "text" id = "address" name = "address" size = "60" maxlength = "100" />
+
+        <h3> Phone Number:</h3>
+        <input type = "text" id = "phone1" name = "phone1" size = "3" maxlength = "3" /> -
+        <input type = "text" id = "phone2" name = "phone2" size = "3" maxlength = "3" /> -
+        <input type = "text" id = "phone3" name = "phone3" size = "4" maxlength = "4" />
+
+        <h3> email: </h3>
+        <input  type = "text "id= "email" name = "email" size = "15" maxlength = "60" />
+
+        <h3> Username:</h3>
+        <input type = "text" id= "username" name = "user" size = "10" maxlength = "10" />
+        <h3> Password:</h3>
+        <input type = "text" id= "password" name = "password" size = "10" maxlength = "10" />
+
+
+        <br />
+        <input type = "submit" value = "Create account">
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        <input type = "reset" value = "Clear ">
+        </form>
+
       </div>
     </div>
   </div>
