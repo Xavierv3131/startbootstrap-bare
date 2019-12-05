@@ -63,6 +63,14 @@
       </div>
     </div>
   </div>
+  
+  <?php
+	//Get data values from order form
+	$username = $_POST["username"];
+	$password = $_POST["password"];
+	$deck = $_POST["deck];
+	$deckPrice = $_POST["
+  ?>	
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>

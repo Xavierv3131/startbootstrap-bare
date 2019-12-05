@@ -40,7 +40,7 @@
             <a class="nav-link" href="contact.html">Contact Us<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="accountCreation.html">Create an Account</a>
+            <a class="nav-link" href="accountCreation.php">Create an Account</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="search.php">Search</a>
@@ -53,13 +53,17 @@
   <!-- Page Content -->
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <h1 class="mt-5">MTG Renter is a renting service for competitive Magic: The Gathering Decks</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.3.1</li>
-          <li>jQuery 3.4.1</li>
-        </ul>
+      <div class="col-lg-12">
+        <h1 class="mt-5">Contact Us</h1>
+        <p class="lead">Please fill out the following form:</p>
+	<p>
+	<form action = "" >
+    	<h4>Full Name</h4><input type = "text" id = "firstName" name = "firstName" size = "30" maxlength = "30" />
+    	<h4>Email</h4><input type = "text" id = "email" name = "email" size = "30" maxlength = "30" />
+	<h4>Message</h4><textarea name = "message" rows = "5" cols = "50" ></textarea>
+	<p /><input type = "submit" id = "submit" value = "Submit" />
+	</form>
+	</p>
       </div>
     </div>
   </div>
