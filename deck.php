@@ -3,12 +3,33 @@
 
 <head>
 
+  <?php
+    if(isset($_GET["deck"])) {
+      $deck = $_GET["deck"];
+    }
+    else {
+      header("Location: decks.php");
+    }
+    // Connect to MySQL
+    $db = mysqli_connect("csdb.brockport.edu", "xvoge1", "banshee31", "fal19_cis442_1");
+    $deckname = mysqli_query($db, "SELECT DeckName FROM decktype WHERE (DecktypeID = " . $deck . ");");
+    $card = mysqli_query($db, "SELECT Card FROM decklist WHERE (DecklistID = " . $deck . ");");
+    $quan = mysqli_query($db, "SELECT CardQuan FROM decklist WHERE (DecklistID = " . $deck . ");");
+    $deckcolor = mysqli_query($db, "SELECT DeckColor FROM decktype WHERE (DecktypeID = " . $deck . ");");
+    $deckprice = mysqli_query($db, "SELECT RentPrice FROM decktype WHERE (DecktypeID = " . $deck . ");");
+    $image = mysqli_query($db, "SELECT ImageLink FROM decktype WHERE (DecktypeID = " . $deck . ");");
+
+
+
+
+  ?>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="Xavier Vogel">
 
-  <title>MTG Renter</title>
+  <title>MTG Renter - Deck Page</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -54,12 +75,29 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">MTG Renter is a renting service for competitive Magic: The Gathering Decks</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.3.1</li>
-          <li>jQuery 3.4.1</li>
-        </ul>
+        <h1 class="mt-5" style="font-size: 16"><?php echo($deckname); ?>: <a href="order.php">Order Now!</a></h1>
+        <table class="table table-bordered text-center">
+          <tr>
+              <td rowspan="3"><img src="<?php echo($image); ?>" alt="deck image"></td>
+              <td>Deckname: <?php echo($deckname); ?></td>
+          </tr>
+          <tr>
+              
+              <td>Deck colors: <?php echo($deckcolors); ?></td>          
+          </tr>
+          <tr>
+              
+              <td>Price to Rent: $<?php echo($deckprice); ?></td>
+          </tr>
+          <tr>
+              <th>Card</th>
+              <th>Quantity</th>
+          </tr>
+          <tr>
+              <td><?php echo($card); ?></td>
+              <td><?php echo($quan); ?></td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>

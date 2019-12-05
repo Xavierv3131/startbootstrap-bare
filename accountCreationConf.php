@@ -12,7 +12,11 @@
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  <style>
+h4{
+  text-decoration: underline;
+}
+</style>
 </head>
 
 <body>
@@ -54,12 +58,47 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">MTG Renter is a renting service for competitive Magic: The Gathering Decks</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.3.1</li>
-          <li>jQuery 3.4.1</li>
-        </ul>
+        <h1 class="mt-5">Created Account Report</h1>
+         <?php
+$db = mysqli_connect("csdb", "ichar2", "_fal19_6", "fal19_cis442_1");
+if ($db->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$firstname = $_POST["firstname"];
+$lastname = $_POST["lastname"];
+$address = $_POST["address"];
+$email = $_POST["email"];
+$username = $_POST["user"];
+$password = $_POST["password"];
+$phone1 = $_POST["phone1"];
+$phone2 = $_POST["phone2"];
+$phone3 = $_POST["phone3"];
+$phone1 = strval($phone1);
+$phone2 = strval($phone2);
+$phone3 = strval($phone3);
+
+$phone = $phone1 . $phone2 . $phone3;
+$fullname = $firstname . " " . $lastname;
+
+$query = "INSERT INTO users (`FirstName` , `LastName`, `Password`, `Email`, `Phone`, `Address`, `username` , `Renting`) 
+VALUES ('" . $firstname . "', '" . $lastname . "', '" . $password . "', '" . $email . "', '" . $phone . "', '" . $address
+. "', '" . $username . "', 0)";
+mysqli_query($db, $query);
+   ?>
+
+<h2> Your account has been created.</h2>
+<h4> Account of: </h4>
+<?php print("$fullname"); ?>
+<h4> At: </h4>
+<?php print("$address"); ?>
+<h4> Email: </h4>
+<?php print("$email"); ?>
+<h4> Phone Number: </h4>
+<?php print("$phone"); ?>
+<h4> User Name: </h4>
+<?php print("$username"); ?>
+
       </div>
     </div>
   </div>

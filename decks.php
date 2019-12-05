@@ -2,7 +2,17 @@
 <html lang="en">
 
 <head>
+  <style>
+    img {
+      position: relative;
+      width: 250px;
+      height: 140px;
+      border: 1px solid;
+      object-fit: cover;
+      object-position: -30px -50px;
+    }
 
+  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="List of decks rented out by MTG Renter">
@@ -55,9 +65,9 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h1 class="mt-5">Decks</h1>
-        <table>
+        <table class="table table-bordered text-center">
           <tr>
-              <td><img src="chalice.jpg" alt="Chalice of the Void"></td>
+              <td><div><img src="chalice.jpg" alt="Chalice of the Void"><div></td>
               <td><a href="deck.php?deck=1">Eldrazi Tron</a></td>
           <tr>
           <tr>
