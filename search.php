@@ -60,7 +60,7 @@ table, th, td {
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">MTG Renter is a renting service for competitive Magic: The Gathering Decks</h1>
+        <h1 class="mt-5">Search for cards</h1>
          <?php
 $db = mysqli_connect("csdb", "ichar2", "_fal19_6", "fal19_cis442_1");
 if ($db->connect_error) {
