@@ -55,11 +55,77 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h1 class="mt-5">MTG Renter is a renting service for competitive Magic: The Gathering Decks</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.3.1</li>
-          <li>jQuery 3.4.1</li>
-        </ul>
+         <?php
+$db = mysqli_connect("csdb", "ichar2", "_fal19_6", "fal19_cis442_1");
+if ($db->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$search = $_POST["search"];
+
+$query = "SELECT `Card`,`deckname`,`link` FROM `decklist`, `decktype` WHERE `Card` LIKE '%" . $search ."%'"; 
+$matches = mysqli_query($db, $query);
+   ?>
+
+<form action = "search.php" method = "post">
+<h3> Card Name: </h3>
+<input  type = "text "id= "search" name = "search" size = "25" maxlength = "100" />
+
+
+<?php
+
+
+
+
+
+$num_rows = mysqli_num_rows($matches);
+
+$num_fields = mysqli_num_fields($matches);
+
+$row = mysqli_fetch_assoc($matches);
+
+
+$keys = array_keys($row);
+if ($search == ""){
+print "Empty Search";
+}else{
+print "<table><caption> <h2> Query Results </h2> </caption>";
+print "<tr>";
+for ($index = 0; $index < $num_fields; $index++) 
+    print "<th>" . $keys[$index] . "</th>";
+
+print "</tr>";
+
+// Output the values of the fields in the rows
+
+for ($row_num = 0; $row_num < $num_rows; $row_num++) 
+{
+    print "<tr>";
+    $values = array_values($row);
+    for ($index = 0; $index < $num_fields; $index++)
+    {
+if ($index != 2){
+        $value = htmlspecialchars($values[$index]);
+        print "<th>" . $value . "</th> ";
+    }else{
+$value = $values[$index];
+        print "<th>" . $value . "</th> ";
+
+}
+}
+
+    print "</tr>";
+    $row = mysqli_fetch_assoc($matches);
+}
+print "</table>";
+}
+
+?>
+
+<br />
+<input type = "submit" value = "Search for cards">
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+</form>
       </div>
     </div>
   </div>
