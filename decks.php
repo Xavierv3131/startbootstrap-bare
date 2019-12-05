@@ -54,12 +54,25 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5">MTG Renter is a renting service for competitive Magic: The Gathering Decks</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.3.1</li>
-          <li>jQuery 3.4.1</li>
-        </ul>
+        <h1 class="mt-5">Decks</h1>
+        <table>
+          <tr>
+              <td><img src="chalice.jpg" alt="Chalice of the Void"></td>
+              <td><a href="deck.php?deck=1">Eldrazi Tron</a></td>
+          <tr>
+          <tr>
+              <td><img src="amulet.jpg" alt="Amulet of Vigor"></td>
+              <td><a href="deck.php?deck=2">Amulet Titan</a></td>          
+          <tr>
+          <tr>
+              <td><img src="gobgui.jpg" alt="Goblin Guide"></td>
+              <td><a href="deck.php?deck=3">Burn</a></td>
+          <tr>
+          <tr>
+              <td><img src="liliana.jpg" alt="Liliana"></td>
+              <td><a href="deck.php?deck=4">Jund</a></td>
+          <tr>
+        </table>
       </div>
     </div>
   </div>
