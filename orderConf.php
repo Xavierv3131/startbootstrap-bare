@@ -196,39 +196,7 @@
 
       </div>
     </div>
-  </div>	
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.slim.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
-
-
-	mysql_close();
-
-	//Check to see if username and password match
-        if($count == 1)
-	{
-		echo '<h1 class="mt-5">You have successfully placed your order!</h1>';
-				
-		$newOrder = INSERT INTO 'order'('UserID', 'DateIssued', 'DateDue', 'Deck', 'User', 'Price') 
-			VALUES ('$userID','$dateIssued','$dueDate','?????','$username','$rentPrice');
-		$result3 = mysql_query($newOrder);
-	
-	}
-	else
-	{
-		echo '<h1 class="mt-5">Invalid username or password</h1>'; 
-	}
-
-  	?>
-
-      </div>
-    </div>
-  </div>	
+  </div>		
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
