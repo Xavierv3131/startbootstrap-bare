@@ -95,14 +95,13 @@ $keys = array_keys($row);
 if ($search == ""){
 print "Empty Search";
 }else{
-print "<table><caption> <h2> Query Results </h2> </caption>";
+print "<table><caption> <h4> Search Results </h4> </caption>";
 print "<tr>";
 for ($index = 0; $index < $num_fields; $index++) 
     print "<th>" . $keys[$index] . "</th>";
 
 print "</tr>";
 
-// Output the values of the fields in the rows
 
 for ($row_num = 0; $row_num < $num_rows; $row_num++) 
 {
