@@ -95,7 +95,7 @@ $keys = array_keys($row);
 if ($search == ""){
 print "Empty Search";
 }else{
-print "<table><caption> <h4> Search Results </h4> </caption>";
+print "<table>";
 print "<tr>";
 for ($index = 0; $index < $num_fields; $index++) 
     print "<th>" . $keys[$index] . "</th>";
