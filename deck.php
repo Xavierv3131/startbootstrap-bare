@@ -2,28 +2,6 @@
 <html lang="en">
 
 <head>
-
-  <?php
-    if(isset($_GET["deck"])) {
-      $deck = $_GET["deck"];
-    }
-    else {
-      header("Location: decks.php");
-    }
-    // Connect to MySQL
-    $db = mysqli_connect("csdb.brockport.edu", "xvoge1", "banshee31", "fal19_cis442_1");
-    $deckname = mysqli_query($db, "SELECT DeckName FROM decktype WHERE (DecktypeID = " . $deck . ");");
-    $card = mysqli_query($db, "SELECT Card FROM decklist WHERE (DecklistID = " . $deck . ");");
-    $quan = mysqli_query($db, "SELECT CardQuan FROM decklist WHERE (DecklistID = " . $deck . ");");
-    $deckcolor = mysqli_query($db, "SELECT DeckColor FROM decktype WHERE (DecktypeID = " . $deck . ");");
-    $deckprice = mysqli_query($db, "SELECT RentPrice FROM decktype WHERE (DecktypeID = " . $deck . ");");
-    $image = mysqli_query($db, "SELECT ImageLink FROM decktype WHERE (DecktypeID = " . $deck . ");");
-
-
-
-
-  ?>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -37,6 +15,30 @@
 </head>
 
 <body>
+
+  <?php
+    if(isset($_GET["deck"])) {
+      $deck = $_GET["deck"];
+    }
+    else {
+      header("Location: decks.php");
+    }
+    // Connect to MySQL
+    $db = mysqli_connect("csdb", "xvoge1", "banshee31", "fal19_cis442_1");
+    $deckname = mysql_query($db, "SELECT DeckName FROM decktype WHERE (DecktypeID = $deck )");
+	echo $deckname;
+    $card = mysql_query($db, "SELECT Card FROM decklist WHERE (DecklistID = $deck)");
+    $quan = mysql_query($db, "SELECT CardQuan FROM decklist WHERE (DecklistID = " . $deck . ");");
+    $deckcolor = mysql_query($db, "SELECT DeckColor FROM decktype WHERE (DecktypeID = " . $deck . ");");
+    $deckprice = mysql_query($db, "SELECT RentPrice FROM decktype WHERE (DecktypeID = " . $deck . ");");
+    $image = mysql_query($db, "SELECT ImageLink FROM decktype WHERE (DecktypeID = " . $deck . ");");
+	
+	
+
+
+
+  ?>
+
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -75,19 +77,20 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h1 class="mt-5" style="font-size: 16"><?php echo($deckname); ?>: <a href="order.php">Order Now!</a></h1>
+        <h1 class="mt-5" style="font-size: 16"><a href="order.php">Order Now!</a></h1>
+		<?php print("$deckname"); ?>
         <table class="table table-bordered text-center">
           <tr>
-              <td rowspan="3"><img src="<?php echo($image); ?>" alt="deck image"></td>
-              <td>Deckname: <?php echo($deckname); ?></td>
+              <td rowspan="3"><img src="chalice.jpg"> </td>
+              <td>Deckname: Eldrazi tron </td>
           </tr>
           <tr>
               
-              <td>Deck colors: <?php echo($deckcolors); ?></td>          
+              <td>Deck colors: <?php echo(Colorless); ?></td>          
           </tr>
           <tr>
               
-              <td>Price to Rent: $<?php echo($deckprice); ?></td>
+              <td>Price to Rent: $<?php echo(120); ?></td>
           </tr>
           <tr>
               <th>Card</th>
