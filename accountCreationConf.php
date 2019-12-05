@@ -12,7 +12,11 @@
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  <style>
+h4{
+  text-decoration: underline;
+}
+</style>
 </head>
 
 <body>
@@ -84,15 +88,15 @@ mysqli_query($db, $query);
    ?>
 
 <h2> Your account has been created.</h2>
-<h3> Account of: </h3>
+<h4> Account of: </h4>
 <?php print("$fullname"); ?>
-<h3> At: </h3>
+<h4> At: </h4>
 <?php print("$address"); ?>
-<h3> Email: </h3>
+<h4> Email: </h4>
 <?php print("$email"); ?>
-<h3> Phone Number: </h3>
+<h4> Phone Number: </h4>
 <?php print("$phone"); ?>
-<h3> User Name: </h3>
+<h4> User Name: </h4>
 <?php print("$username"); ?>
 
       </div>
